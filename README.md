@@ -1,8 +1,6 @@
-# airheads_microsite
+# Airheads Microsite
 
-Airheads Microsite
+Three awesome games for Airheads candy! 
 
-
-#  http://play.airheads.com
 
 
