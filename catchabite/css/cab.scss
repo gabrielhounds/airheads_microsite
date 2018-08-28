@@ -26,14 +26,14 @@ $height: 1200px;
 
 main {
 	display: flex;
-	position: absolute;
+	flex-direction: column;
 	top: 0;
 	left: 0;
 	width: 100vw;
 	height: 100vh;
 }
 
-.landing header{
+.cab header{
 	display: flex;
 	flex-direction: column;
 	position: relative;
@@ -48,7 +48,7 @@ main {
 		width: 100%;
 		height: 60%;
 		margin: 1%;
-		background-image: url(../images/airheads_header_logo.png);
+		background-image: url(../../images/airheads_header_logo.png);
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: center center;
@@ -58,7 +58,7 @@ main {
 		top: 33.33%;
 		width: 100%;
 		height: 10%;
-		background-image: url(../images/divider.png);
+		background-image: url(../../images/divider.png);
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: center bottom;
@@ -88,86 +88,29 @@ main {
 	}
 }
 
-.landing nav {
-	position: absolute;
+.game {
 	display: flex;
-	top: 40%;
-	left: 0;
+	align-items: center;
+	justify-content: center;
+	position: relative;
 	width: 100%;
 	height: 60%;
-	background-image: url(../images/bg_candy.png);
+	left: 0;
+	//bottom: 0;
+	//background-color: aqua;
+	background-image: url(../../images/bg_candy.png);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: top center;
 
-	@include portrait {
-		flex-direction: column;
+	.gameHolder {
+		width: 1280px;
+		height: 500px;
+		background-color: #000;
 	}
-
-	.game_logo {
-		height: 100%;
-		align-self: center;
-
-		@include portrait {
-			height: 33.33%;
-		}
-
-		&.catchABite {
-			width: 28%;
-			background-image: url(../images/logo_1.png);
-			background-repeat: no-repeat;
-			background-position: center center;
-			background-size: contain;
-
-			@include portrait {
-				width: 100%;
-			}
-
-
-		}
-
-		&.getAirheaded {
-			width: 44%;
-			background-image: url(../images/logo_2.png);
-			background-repeat: no-repeat;
-			background-position: center center;
-			background-size: contain;
-
-			@include portrait {
-				width: 100%;
-			}
-
-
-		}
-
-		&.floatAway {
-			width: 28%;
-			background-image: url(../images/logo_3.png);
-			background-repeat: no-repeat;
-			background-position: center center;
-			background-size: contain;
-
-			@include portrait {
-				width: 100%;
-			}
-
-
-		}
-	}
-
 }
 
-.fg, .candy1, .candy2 {
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: center center;
-}
 
-.bg {
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: center center;
-}
 
 
 
