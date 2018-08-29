@@ -7,29 +7,24 @@
 	<link rel="stylesheet" href="css/cab.css"></head>
 	<title>Airheads | Catch a Bite!</title>
 </head>
-
 <body class="cab">
-
 	<main class="cab">
-
 		<header  class="cab">
 			<div class="cab logo"><a href="http://airheads.com" target="_blank"></a></div>
 			<div class="cab divider"></div>
 			<div class="cab instructions"> <p>Catch as many Airheads as you can in 30 seconds.</p> </div>
 		</header>
-
 		<div class="game">
-
-			<div class="gameHolder"></div>
-
+				<div class="gameHolderShadow"> <img src="../images/gameContainerShadow.png" alt="shadow" /> </div>
+				<div id="gameContainer"></div>
 		</div>
-
 		<div class="back_arrow"><a href="../" target="_self"></a></div>
-
 	</main>
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/PixiPlugin.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.7.1/pixi.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.12/howler.min.js"></script>
 	<script src="js/index.js"></script>
 </body>
 </html>
