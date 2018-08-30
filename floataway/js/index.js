@@ -457,7 +457,7 @@ var gamePlayTimerIncrease = false;
 
           t.to(introSideBG, 0, {pixi:{rotation:90}});
           introSideBG.anchor.set(0,0);
-          introSideBG.position.set(stageW, stageH/2);
+          introSideBG.position.set(stageW, stageH/2 + 80);
 
 
           t.to(introInstructions, 0, {pixi:{scale:.65}});
