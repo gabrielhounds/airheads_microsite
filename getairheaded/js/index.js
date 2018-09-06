@@ -831,6 +831,9 @@ function init() {
 			upperRightArm.rotation = (dx / 10 * (Math.PI / 180));
 			lowerRightArm.rotation = (dx / 2.5 * (Math.PI / 180));
 		} else {
+
+
+
 			stageHit.on('pointermove', handleTouch);
 
 			head.rotation = (-dx / 4 * (Math.PI / 180));
@@ -849,6 +852,7 @@ function init() {
 	}
 
 	var mSpring = 0.03;
+
 	function handleTap(e) {
 		ex = e.data.global.x;
 		ey = e.data.global.y;
@@ -1021,7 +1025,7 @@ function init() {
 				ctaHolder.scale.set(0.6);
 				ctaHolder.position.set( stageW / 2, stageH / 2 - ctaHolder.height / 2 );
 				ahLogo.scale.set(0.4);
-				ahLogo.position.set( stageW / 2, stageH / 2 + ahLogo.height / 2 - 10);
+				ahLogo.position.set( stageW / 2, stageH / 2 + ahLogo.height / 2 - 20);
 				instructionText.style.fontSize = '16px';
 				instructionText.style.letterSpacing = 1;
 				instructionText.position.set( stageW / 2 - instructionText.width / 2, stageH - instructionText.height - 20);
@@ -1036,10 +1040,12 @@ function init() {
 				gaLogo.position.set(stageW / 2 - gaLogo.width / 2 - 20, 60);
 				ctaHolder.scale.set(0.8);
 				ctaHolder.position.set( stageW / 2, stageH / 2 - ctaHolder.height / 2);
-				ahLogo.scale.set(0.60);
-				ahLogo.position.set( stageW / 2, stageH / 2 + ahLogo.height / 2 );
-				instructionText.style.fontSize = '20px';
+				ahLogo.scale.set(0.55);
+				ahLogo.position.set( stageW / 2, stageH / 2 + ahLogo.height / 2 - 20);
+
+				instructionText.style.fontSize = '18px';
 				instructionText.style.letterSpacing = 1;
+				instructionText.style.lineHeight = 20;
 				instructionText.position.set( stageW / 2 - instructionText.width / 2, stageH - instructionText.height - 20);
 			}
 		}
@@ -1415,7 +1421,7 @@ function init() {
 		gaCandy4End 	= new PIXI.Sprite(resources['ga_candy4.png'].texture);
 		endCtaBg1 		= new PIXI.Sprite(resources['cta_bg.png'].texture);
 		endCtaBg2 		= new PIXI.Sprite(resources['cta_bg.png'].texture);
-		endCtaText1 	= new PIXI.Text(' Play Again? ');
+		endCtaText1 	= new PIXI.Text(' Play again ');
 		endCtaText2 	= new PIXI.Text(' Find a pack ');
 		ahLogoEnd 		= new PIXI.extras.AnimatedSprite(logoTextures);
 		overlayEnd 	    = new PIXI.Sprite(resources['endOverlay.png'].texture);
@@ -1486,9 +1492,30 @@ function init() {
 		'endOverlay.png'
 	]).on('progress', loadProgressHandler).load(setUp);
 
+
+	var initTouch = false;
+
+
+	function setUpAirhead() {
+		if (!isMobile) {
+			handleAirHead();
+		} else {
+
+			stageHit.on('pointerdown' , function() {
+				initTouch = true;
+				return;
+			});
+
+			if (initTouch === true) {
+				handleAirHead();
+			}
+		}
+	}
+
 	ticker.add( function(delta){
 		handleBg(delta);
-		handleAirHead(delta);
+		setUpAirhead();
+		//handleAirHead(delta);
 		handleCandy(delta);
 		handleTimer(delta);
 		handleEnemy(delta);
@@ -1529,7 +1556,7 @@ function init() {
       	n_orientation = Math.abs(window.orientation);
       	if  (isMobile === true &&  Math.abs(window.orientation) === 90 ) {
 			//alert('landscape view');
-      		t.set(rotateAlertOverlay, {autoAlpha:1});
+      		//t.set(rotateAlertOverlay, {autoAlpha:1});
 
         	if (playing === true) {
 
@@ -1538,7 +1565,7 @@ function init() {
         	}
     	}
       	if (isMobile === true && window.orientation === 0) {
-          t.set(rotateAlertOverlay, {autoAlpha:0});
+          //t.set(rotateAlertOverlay, {autoAlpha:0});
           if (playing === true) {
 			setTimeout( function() {
               ticker.start();

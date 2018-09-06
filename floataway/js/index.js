@@ -612,7 +612,7 @@ var gamePlayTimerIncrease = false;
 		ctaHolderEndframe1 		= new PIXI.Container();
 		ctaBgEndFrame1 			= new PIXI.Sprite(resources['cta_bg.png'].texture);
 		ctaBgEndFrame1.anchor.set(0.5);
-		ctaEndframe1Text 		= new PIXI.Text(' Play Again? ');
+		ctaEndframe1Text 		= new PIXI.Text(' Play again ');
 		ctaEndframe1Text.style = Text.ctaTextStyle;
 		ctaEndframe1Text.anchor.set(0.5);
 
@@ -676,7 +676,7 @@ var gamePlayTimerIncrease = false;
 		ctaHolderEndframe2 		= new PIXI.Container();
 		ctaBgEndFrame2 			= new PIXI.Sprite(resources['cta_bg.png'].texture);
 		ctaBgEndFrame2.anchor.set(0.5);
-		ctaEndframe2Text 		= new PIXI.Text(' Find a pack? ');
+		ctaEndframe2Text 		= new PIXI.Text(' Find a pack ');
 		ctaEndframe2Text.style = Text.ctaTextStyle;
 		ctaEndframe2Text.anchor.set(0.5);
 		ctaHolderEndframe1.position.set(stageW/5, stageH - (ctaHolderEndframe1.height) );

@@ -840,7 +840,7 @@ function init() {
               ctaHolder.position.set( stageW / 2, stageH / 2 - ctaHolder.height / 2);
 
                ahLogo.scale.set(0.60);
-               ahLogo.position.set( stageW / 2, stageH / 2 + ahLogo.height / 2 + 10 );
+               ahLogo.position.set( stageW / 2, stageH / 2 + ahLogo.height / 2 - 20);
 
                instructionText.style.fontSize = '20px';
                instructionText.style.letterSpacing = 1;
@@ -1211,7 +1211,7 @@ function init() {
 		cabCandy4End 	= new PIXI.Sprite(resources['images/cab/cab_candy4.png'].texture);
 		endCtaBg1 		= new PIXI.Sprite(resources['images/cab/cta_bg.png'].texture);
 		endCtaBg2 		= new PIXI.Sprite(resources['images/cab/cta_bg.png'].texture);
-		endCtaText1 	= new PIXI.Text(' Play again? ');
+		endCtaText1 	= new PIXI.Text(' Play again ');
 		endCtaText2 	= new PIXI.Text(' Find a pack ');
 		ahLogoEnd 		= new PIXI.extras.AnimatedSprite(logoTextures);
 		overlayEnd 		= new PIXI.Sprite(resources['images/cab/endOverlay.png'].texture);
