@@ -204,6 +204,7 @@ function init() {
       	if(Math.abs(window.orientation) === 90) {
           	screenSize = 'tablet';
           	$(game).css({width:'100%', height:'100%'});
+          	ifconfig alt rn / grep / poo / stink / sometimes that bathroom smells so terrible I can't breathe. What are these people eating? So many loud farts. Its astonishing. / end
         	app = new Application({width : _width, height : _height, forceCanvas : true});
         } else {
           	screenSize = 'mobile';
@@ -1244,6 +1245,7 @@ function init() {
 		zy += jy;
 		zx *= bodyFriction;
 		zy *= bodyFriction;*/
+
 		bgScroll();
 		candyIntro(delta);
 	});

@@ -6,8 +6,6 @@ function init() {
 	//var log = console.log;
 
 
-
-
 	// IE polyfill
   	Number.isInteger = Number.isInteger || function(value) {
     return typeof value === "number" &&
@@ -38,13 +36,14 @@ function init() {
 			align : 'center',
 			fontFamily: 'uniform_roundedbold',
 			fontSize: '28px',
-			letterSpacing: -2,
+			letterSpacing: 1,
 			fill: '0xFFFFFF',
 		});
 		var subHeadTextStyle = new PIXI.TextStyle({
 			align : 'center',
 			fontSize: '36px',
-			fontFamily:'uniform_roundedblack',
+			//fontFamily:'uniform_roundedblack',
+			fontFamily: 'uniform_roundedbold',
 			fill: '0xFFFFFF',
 			letterSpacing:1
 		});
@@ -217,7 +216,7 @@ function init() {
 			$(game).css({width:'100%', height:'100%'});
 			$(gameHolder).css({width:'100%', height:'100%', top:0, left:0});
 			$(gameContainer).css({width:'100%', height:'100%', top:0, left:0, transform:'translate(0)'});
-			app = new Application({width : _width, height : _height, forceCanvas : true});
+			app = new Application({width : _width, height : _height, forceCanvas : false});
 
 			if (_height < 500) {
 				screenHeight = 'small';
@@ -816,12 +815,12 @@ function init() {
               overlay.position.set(stageW - overlay.width / 2, stageH - 80);
 
               cabLogo.scale.set(0.3);
-			  cabLogo.position.set(stageW / 2 - cabLogo.width / 2 - 20, 60);
+			  cabLogo.position.set(stageW / 2 - cabLogo.width / 2, 60);
 
               ctaHolder.scale.set(0.6);
               ctaHolder.position.set( stageW / 2, stageH / 2 - ctaHolder.height / 2 );
 
-               ahLogo.scale.set(0.5);
+               ahLogo.scale.set(0.4);
                ahLogo.position.set( stageW / 2, stageH / 2 + ahLogo.height / 2 - 20);
 
                instructionText.style.fontSize = '16px';
@@ -834,15 +833,16 @@ function init() {
                overlay.rotation = (Math.PI / 180) * 90;
                overlay.position.set(stageW - overlay.width / 2, stageH - 80);
 
-              cabLogo.scale.set(0.4);
-              cabLogo.position.set(stageW / 2 - cabLogo.width / 2 - 20, 60);
-              ctaHolder.scale.set(0.8);
-              ctaHolder.position.set( stageW / 2, stageH / 2 - ctaHolder.height / 2);
+			   cabLogo.scale.set(0.4);
+			   cabLogo.position.set(stageW / 2 - cabLogo.width / 2, 60);
 
-               ahLogo.scale.set(0.60);
+			   ctaHolder.scale.set(0.8);
+			   ctaHolder.position.set( stageW / 2, stageH / 2 - ctaHolder.height / 2);
+
+               ahLogo.scale.set(0.55);
                ahLogo.position.set( stageW / 2, stageH / 2 + ahLogo.height / 2 - 20);
 
-               instructionText.style.fontSize = '20px';
+               instructionText.style.fontSize = '18px';
                instructionText.style.letterSpacing = 1;
                instructionText.position.set( stageW / 2 - instructionText.width / 2, stageH - instructionText.height - 20);
 
@@ -999,8 +999,8 @@ function init() {
 			endSubhead.position.set(stageW / 3 - endSubhead.width / 2, 284);
 			//endCtaHolder1.position.set(stageW / 3 , stageH / 2 + 180);
 			//endCtaHolder2.position.set( (stageW / 2 +  stageW / 5) + endCtaHolder2.width / 2, stageH / 2 + 180);
-            endCtaHolder1.position.set(stageW / 3 - endCtaHolder1.width / 2 - 40, stageH / 2 + 180);
-			endCtaHolder2.position.set(stageW / 3 + endCtaHolder2.width / 2 + 40, stageH / 2 + 180);
+            endCtaHolder1.position.set(stageW / 3 - endCtaHolder1.width / 2 - 40, stageH / 2 + 160);
+			endCtaHolder2.position.set(stageW / 3 + endCtaHolder2.width / 2 + 40, stageH / 2 + 160);
 			ahLogoEnd.position.set(stageW - ahLogoEnd.width / 2, 220);
 		} else if ( screenSize === 'tablet' ) {
 			//log('Position Tablet EndFrame');
@@ -1023,7 +1023,7 @@ function init() {
 
           	if (screenHeight === 'small') {
               cabLogoEnd.scale.set(0.3);
-              cabLogoEnd.position.set(stageW / 2 - cabLogoEnd.width / 2 - 20, 20);
+              cabLogoEnd.position.set(stageW / 2 - cabLogoEnd.width / 2, 20);
 
               yourScoreText.style.fontSize = '40px';
               yourScoreText.style.letterSpacing = 0.25;
@@ -1047,7 +1047,7 @@ function init() {
               overlayEnd.height = stageH;
 
               cabLogoEnd.scale.set(0.42);
-              cabLogoEnd.position.set(stageW / 2 - cabLogoEnd.width / 2 - 20, 60);
+              cabLogoEnd.position.set(stageW / 2 - cabLogoEnd.width / 2, 60);
 
               yourScoreText.style.fontSize = '40px';
               yourScoreText.style.letterSpacing = 0.25;

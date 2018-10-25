@@ -45,6 +45,8 @@ main {
 @media all and (orientation: portrait) {
   .landing nav {
     flex-direction: column;
+    height: 75%;
+    top: 25%;
   }
 }
 

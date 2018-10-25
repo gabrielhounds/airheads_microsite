@@ -40,8 +40,6 @@ function init() {
 	var tlOutro 	= new TimelineMax({paused:true});
 	var tlEndOut 	= new TimelineMax({paused:true});
 	var tlGameOver 	= new TimelineMax({paused:true});
-
-
 	Text = (function() {
 		var interfaceTextStyle = new PIXI.TextStyle({
 			align : 'center',
@@ -70,7 +68,7 @@ function init() {
 			fontSize: '100px',
 			fontFamily:'uniform_roundedultra',
 			fill: '0xFFFFFF',
-			letterSpacing: -4,
+			letterSpacing: 1,
            	lineHeight: 10
 		});
 		return {
@@ -335,7 +333,6 @@ var gamePlayTimerIncrease = false;
 			'introBG.jpg',
 			'endframeScreen.jpg',
 			'introSideBG.png',
-			'overlayBg_@2x.png',
 			'introAirHeadLogo.png',
 			'introInstructionsB.png',
 			'introInstructionsBMobile.png',
@@ -372,24 +369,15 @@ var gamePlayTimerIncrease = false;
 		introBG 		= new PIXI.Sprite(resources['introBG.jpg'].texture);
 		introCandy 		= new PIXI.Sprite(resources['introCandy.png'].texture);
 		introLogo 		= new PIXI.Sprite(resources['introLogoC.png'].texture);
-
-		//overlay = new PIXI.Sprite(resources['overlayBg_@2X.png'].texture);
-
-		introSideBG = new PIXI.Sprite(resources['overlayBg_@2x.png'].texture);
-
-		//introSideBG 		= new PIXI.Sprite(resources['introSideBG.png'].texture);
-
-
+		introSideBG 		= new PIXI.Sprite(resources['introSideBG.png'].texture);
 		introAirHeadLogo 		= new PIXI.Sprite(resources['introAirHeadLogo.png'].texture);
 
-		instructionText = new PIXI.Text(" Drag your mouse.\nCatch some candy.\nIt's that easy. ");
-		instructionText.style = Text.interfaceTextStyle;
 
-        /*if(isMobile) {
+        if(isMobile) {
           introInstructions 		= new PIXI.Sprite(resources['introInstructionsBMobile.png'].texture);
         } else {
           introInstructions 		= new PIXI.Sprite(resources['introInstructionsB.png'].texture);
-        }*/
+        }
 
         introClicked 		= new PIXI.Sprite();
         introClicked.width = stageW;
@@ -427,17 +415,11 @@ var gamePlayTimerIncrease = false;
           introAirHeadLogo.anchor.set(0.5);
           introAirHeadLogo.position.set(1080,170);
 
-          //introInstructions.anchor.set(0.5);
-          //introInstructions.position.set(1080,390);
-
-          instructionText.position.set((introBG.x + introBG.width / 2) - instructionText.width / 2, stageH - instructionText.height - 60);
-
-          instructionText.alpha = 0;
-
-
+          introInstructions.anchor.set(0.5);
+          introInstructions.position.set(1080,390);
           ctaHolder.position.set(440, 420);
 
-          //introInstructions.alpha = 0;
+          introInstructions.alpha = 0;
 
 		  ctaHolder.position.set(stageW / 2, 420);
 		  introSideBG.alpha = 0;
@@ -467,23 +449,14 @@ var gamePlayTimerIncrease = false;
           introAirHeadLogo.anchor.set(0.5);
           introAirHeadLogo.position.set(645, 215);
 
-          //introInstructions.anchor.set(0.5);
-          //introInstructions.position.set(650,350);
-          //t.to(introInstructions, 0, {pixi:{scale:.65, }});
-
-          instructionText.style.fontSize = '20px';
-		  instructionText.style.letterSpacing = 1;
-		  instructionText.position.set( ((stageW - introSideBG.x) / 2 ) + introSideBG.x - instructionText.width / 2, stageH - instructionText.height - 60);
-
+          introInstructions.anchor.set(0.5);
+          introInstructions.position.set(650,350);
+          t.to(introInstructions, 0, {pixi:{scale:.65, }});
 
           ctaHolder.position.set(240, 380);
           t.to(ctaHolder, 0, {pixi:{scale:.65, }});
 
         } else if (screenSize == "mobile") {
-
-		  instructionText.setText(" Drag your finger.\nCatch some candy.\nIt's that easy. ")
-
-
           t.to(introCandy, 0, {pixi:{scale:.45}});
 
           introCandy.anchor.set(0.5);
@@ -495,16 +468,9 @@ var gamePlayTimerIncrease = false;
           introLogo.position.set(stageW/2,stageH/4 - 40);
 
 
-          //t.to(introSideBG, 0, {pixi:{rotation:90}});
-          //introSideBG.anchor.set(0,0);
-          //introSideBG.position.set(stageW, stageH/2 + 25);
-
-          introSideBG.anchor.set(0.5);
-		  introSideBG.width = stageW;
-		  introSideBG.rotation = (Math.PI / 180) * 90;
-		  introSideBG.position.set(stageW - introSideBG.width / 2, stageH - 80);
-
-
+          t.to(introSideBG, 0, {pixi:{rotation:90}});
+          introSideBG.anchor.set(0,0);
+          introSideBG.position.set(stageW, stageH/2 + 25);
 
 		  //introSideBG.anchor.set(0,0);
           //introSideBG.rotation = (Math.PI / 180) * 90;
@@ -513,22 +479,16 @@ var gamePlayTimerIncrease = false;
 		  //introSideBG.scale.x = introSideBG.scale.y = stageW / 1000;
 
 
-          //t.to(introInstructions, 0, {pixi:{scale:.65}});
-          //introInstructions.anchor.set(0.5);
-          //introInstructions.position.set(stageW/2,stageH-introInstructions.height/2 - 10);
-
-          instructionText.style.fontSize = '18px';
-		  instructionText.style.letterSpacing = 1;
-		  instructionText.style.lineHeight = 20;
-		  instructionText.position.set( stageW / 2 - instructionText.width / 2, stageH - instructionText.height - 20);
+          t.to(introInstructions, 0, {pixi:{scale:.65}});
+          introInstructions.anchor.set(0.5);
+          introInstructions.position.set(stageW/2,stageH-introInstructions.height/2 - 10);
 
 
           //t.to(introAirHeadLogo, 0, {pixi:{scale:.55}});
-
-          introAirHeadLogo.scale.set(0.535);
+          introAirHeadLogo.scale.set(0.55);
           introAirHeadLogo.anchor.set(0.5);
           //introAirHeadLogo.position.set(stageW/2,stageH - introAirHeadLogo.height);
-		  introAirHeadLogo.position.set( stageW / 2 - 3, stageH / 2 + introAirHeadLogo.height / 2 + 18);
+		  introAirHeadLogo.position.set( stageW / 2, stageH / 2 + introAirHeadLogo.height / 2 + 20);
 
 
           //t.to(ctaHolder, 0, {pixi:{scale:.65, }});
@@ -552,8 +512,7 @@ var gamePlayTimerIncrease = false;
 		intro.addChild(introLogo);
 		intro.addChild(ctaHolder);
 		intro.addChild(introAirHeadLogo);
-		//intro.addChild(introInstructions);
-		intro.addChild(instructionText);
+		intro.addChild(introInstructions);
 
         ctaHolder.addChild(ctaBg);
 		ctaHolder.addChild(ctaText);
@@ -588,9 +547,7 @@ var gamePlayTimerIncrease = false;
         t.from(introCandy, 1.5, {pixi:{scale:'0'},ease:Elastic.easeOut});
         t.from(introSideBG, .5, {pixi:{y:'600'},ease: Power2.easeOut,delay:1});
         t.from(introAirHeadLogo, 1.5, {pixi:{scale:'0'},ease:Elastic.easeOut, delay:1.25});
-        //t.from(introInstructions, 1, {pixi:{y:'600'},ease: Power2.easeOut, delay:1.5});
-		t.from(instructionText, 	0.4, {pixi:{x:'+=300', alpha:0.0}, ease:Power3.easeOut})
-
+        t.from(introInstructions, 1, {pixi:{y:'600'},ease: Power2.easeOut, delay:1.5});
       } else if (screenSize == "tablet") {
         t.from(ctaHolder, .5, {pixi:{y:'600'},ease: Power2.easeOut,delay:.5});
         t.from(introLogo, 1.5, {pixi:{scale:'0'},ease:Elastic.easeOut, delay:.25});
@@ -598,8 +555,7 @@ var gamePlayTimerIncrease = false;
         t.from(introSideBG, .5, {pixi:{y:'600'},ease: Power2.easeOut,delay:1});
         // t.to(introAirHeadLogo, 0, {pixi:{scale:'.75'},ease:Elastic.easeOut});
         t.from(introAirHeadLogo, 1.5, {pixi:{scale:'0'},ease:Elastic.easeOut, delay:1.25});
-        //t.from(introInstructions, 1, {pixi:{y:'600'},ease: Power2.easeOut, delay:1.5});
-        t.from(instructionText, 	0.4, {pixi:{x:'+=300', alpha:0.0}, ease:Power3.easeOut})
+        t.from(introInstructions, 1, {pixi:{y:'600'},ease: Power2.easeOut, delay:1.5});
 
       }
 
@@ -723,7 +679,7 @@ var gamePlayTimerIncrease = false;
 			t.to(ctaBgEndFrame1, 0.6, {pixi:{scale:1.2}, ease:Elastic.easeOut});
 			t.to(ctaEndframe1Text, 0.2, {pixi:{y:'+=10', alpha:0}, ease:Power3.easeOut});
 			t.set(ctaEndframe1Text, {pixi:{y:'-=30'}, delay:0.2})
-			t.to(ctaEndframe1Text, 0.6, {pixi:{y:'+=20', alpha:1, scale:1.0}, ease:Elastic.easeOut, delay:0.21});
+			t.to(ctaEndframe1Text, 0.6, {pixi:{y:'+=20', alpha:1, scale:1.1}, ease:Elastic.easeOut, delay:0.21});
             t.to(ctaEndframe1Text, 0.1, {pixi:{y:0}, delay:0.25});
 		}).on('mouseout', function(e){
 			t.to(ctaBgEndFrame1, 0.6, {pixi:{scale:1.0}, ease:Elastic.easeOut});
@@ -751,8 +707,8 @@ var gamePlayTimerIncrease = false;
 		ctaEndframe2Text.style = Text.ctaTextStyle;
 		ctaEndframe2Text.anchor.set(0.5);
 
-		//ctaHolderEndframe1.position.set(stageW/5,    stageH - (ctaHolderEndframe1.height) );
-		//ctaHolderEndframe2.position.set(stageW/2.15, stageH - (ctaHolderEndframe1.height) );
+		ctaHolderEndframe1.position.set(stageW/5,    stageH - (ctaHolderEndframe1.height)  );
+		ctaHolderEndframe2.position.set(stageW/2.15, stageH - (ctaHolderEndframe1.height) );
 
 		ctaHolderEndframe2.addChild(ctaBgEndFrame2);
 		ctaHolderEndframe2.addChild(ctaEndframe2Text);
@@ -763,7 +719,7 @@ var gamePlayTimerIncrease = false;
 			t.to(ctaBgEndFrame2, 0.6, {pixi:{scale:1.2}, ease:Elastic.easeOut});
 			t.to(ctaEndframe2Text, 0.2, {pixi:{y:'+=10', alpha:0}, ease:Power3.easeOut});
 			t.set(ctaEndframe2Text, {pixi:{y:'-=30'}, delay:0.2})
-			t.to(ctaEndframe2Text, 0.6, {pixi:{y:'+=20', alpha:1, scale:1.0}, ease:Elastic.easeOut, delay:0.21});
+			t.to(ctaEndframe2Text, 0.6, {pixi:{y:'+=20', alpha:1, scale:1.1}, ease:Elastic.easeOut, delay:0.21});
             t.to(ctaEndframe2Text, 0.1, {pixi:{y:0}, delay:0.25});
 		}).on('mouseout', function(e){
 			t.to(ctaBgEndFrame2, 0.6, {pixi:{scale:1.0}, ease:Elastic.easeOut});
@@ -782,22 +738,17 @@ var gamePlayTimerIncrease = false;
 
   //    	ctaHolderEndframe2.on('tap', startGame);
 
-
-
 		endframe.addChild(ctaHolderEndframe2);
 
 		yourScoreText 	= new PIXI.Text('Your score: 0 ');
 		yourScoreText.style 	= Text.yourScoreTextStyle;
-		//yourScoreText.position.set(stageW / 3.25 - yourScoreText.width / 2, 200);
-
+		yourScoreText.position.set(stageW / 3.25 - yourScoreText.width / 2, 200);
 
 		endframe.addChild(yourScoreText);
 
 		endSubhead 		= new PIXI.Text(' Great job! ' );
 		endSubhead.style 		= Text.subHeadTextStyle;
-		//endSubhead.position.set(stageW / 3.2 - endSubhead.width / 2, 310);
-
-
+		endSubhead.position.set(stageW / 3.2 - endSubhead.width / 2, 310);
 		endframe.addChild(endSubhead);
 
 
@@ -807,36 +758,29 @@ var gamePlayTimerIncrease = false;
 
           endframeLogo.anchor.set(0.5);
           endframeLogo.position.set(stageW / 3, stageH / 4.5);
-          t.set(endframeLogo, {pixi:{scale:.4}})
+          t.set(endframeLogo, {pixi:{scale:.5}})
 
           endframeCandy.anchor.set(0.5);
           endframeCandy.position.set(stageW / 3, stageH / 4.5);
-          t.set(endframeCandy, {pixi:{scale:.4}})
+          t.set(endframeCandy, {pixi:{scale:.5}})
 
           ctaBgEndFrame1.anchor.set(0.5);
 
           ctaEndframe1Text.anchor.set(0.5);
 
           endframeAirheadLogo.anchor.set(0.5);
-          endframeAirheadLogo.position.set(1033, (stageH / 2) - 17);
-          t.set(endframeAirheadLogo, {pixi:{scale:0.98}});
+          endframeAirheadLogo.position.set(1050, stageH / 2);
+          t.set(endframeAirheadLogo, {pixi:{scale:1}})
 
           ctaBgEndFrame2.anchor.set(0.5);
+
           ctaEndframe2Text.anchor.set(0.5);
+          ctaHolderEndframe1.position.set(stageW/5, stageH - (ctaHolderEndframe1.height) );
+          ctaHolderEndframe2.position.set(stageW/2.15, stageH - (ctaHolderEndframe1.height) );
 
-          //ctaHolderEndframe1.position.set(stageW/5, stageH - (ctaHolderEndframe1.height) );
-          //ctaHolderEndframe2.position.set(stageW/2.15, stageH - (ctaHolderEndframe1.height) );
+          yourScoreText.position.set(stageW / 3.25 - yourScoreText.width / 2, 200);
 
-          ctaHolderEndframe1.position.set(stageW / 3 - ctaHolderEndframe1.width / 2 - 40, stageH / 2 + 160);
-		  ctaHolderEndframe2.position.set(stageW / 3 + ctaHolderEndframe2.width / 2 + 40, stageH / 2 + 160);
-
-
-          //yourScoreText.position.set(stageW / 3.25 - yourScoreText.width / 2, 200);
-          //endSubhead.position.set(stageW / 3.2 - endSubhead.width / 2, 310);
-
-		  yourScoreText.position.set(stageW / 3 - yourScoreText.width / 2, 168);
-		  endSubhead.position.set(stageW / 3 - endSubhead.width / 2, 284);
-
+          endSubhead.position.set(stageW / 3.2 - endSubhead.width / 2, 310);
 
 
         } else if (screenSize == "tablet") {
@@ -875,34 +819,23 @@ var gamePlayTimerIncrease = false;
 		     // alert('small');
 
 		  	  endframeLogo.anchor.set(0.5);
-	          t.set(endframeLogo, {pixi:{scale:.35}});
-	          endframeLogo.position.set(stageW/2, endframeLogo.height/2 + 45);
+	          t.set(endframeLogo, {pixi:{scale:.4}})
+
+	          endframeLogo.position.set(stageW/2, endframeLogo.height/2 + 20);
 
 	          endframeCandy.anchor.set(0.5);
-	          endframeCandy.position.set(stageW/2, endframeLogo.height/2 + 45);
+	          endframeCandy.position.set(stageW/2, endframeLogo.height/2 + 20);
 	          t.set(endframeCandy, {pixi:{scale:.35}})
 
-	          //t.set(endframeAirheadLogo, {pixi:{scale:.55}})
-	          //endframeAirheadLogo.anchor.set(0.5);
-	          //endframeAirheadLogo.position.set(stageW/2, stageH - endframeAirheadLogo.height/2 - 35);
+	          t.set(endframeAirheadLogo, {pixi:{scale:.55}})
+	          endframeAirheadLogo.anchor.set(0.5);
+	          endframeAirheadLogo.position.set(stageW/2, stageH - endframeAirheadLogo.height/2 - 35);
 
+	          t.set(ctaHolderEndframe1, {pixi:{scale:.55}})
+	          ctaHolderEndframe1.position.set(ctaHolderEndframe1.width/2 + 15, stageH - endframeAirheadLogo.height - ctaHolderEndframe1.height - 26);
 
-	          endframeAirheadLogo.scale.set(0.58);
-              endframeAirheadLogo.position.set( (stageW / 2) - 4  , (stageH - 25) - endframeAirheadLogo.height / 2 );
-
-
-	          //t.set(ctaHolderEndframe1, {pixi:{scale:.55}})
-	          //ctaHolderEndframe1.position.set(ctaHolderEndframe1.width/2 + 15, stageH - endframeAirheadLogo.height - ctaHolderEndframe1.height - 26);
-
-	          //t.set(ctaHolderEndframe2, {pixi:{scale:.55}})
-	          //ctaHolderEndframe2.position.set(stageW-ctaHolderEndframe2.width/2 - 15, stageH - endframeAirheadLogo.height - ctaHolderEndframe2.height - 26);
-
-
-	          ctaHolderEndframe1.scale.set(0.50);
-              ctaHolderEndframe2.scale.set(0.50);
-
-              ctaHolderEndframe1.position.set(stageW / 2 - ctaHolderEndframe1.width / 2 - 10, stageH / 2 + 60);
-              ctaHolderEndframe2.position.set(stageW / 2 + ctaHolderEndframe2.width / 2 + 10, stageH / 2 + 60);
+	          t.set(ctaHolderEndframe2, {pixi:{scale:.55}})
+	          ctaHolderEndframe2.position.set(stageW-ctaHolderEndframe2.width/2 - 15, stageH - endframeAirheadLogo.height - ctaHolderEndframe2.height - 26);
 
 			  yourScoreText.style.fontSize = '40px';
 	          yourScoreText.style.letterSpacing = 0.25;
@@ -911,13 +844,10 @@ var gamePlayTimerIncrease = false;
 			  yourScoreText.position.set(35, stageH / 2 - yourScoreText.height * 2    );
 
 
-	          //t.set(endSubhead, {pixi:{scale:.65}})
-	          //endSubhead.anchor.set(0.5);
+	          t.set(endSubhead, {pixi:{scale:.65}})
+	          endSubhead.anchor.set(0.5);
 	          //endSubhead.position.set(stageW / 2, endframeLogo.height + yourScoreText.height * 2);
-	          //endSubhead.position.set(stageW / 2, stageH / 2 - endSubhead.height + 5 );
-
-	          endSubhead.style.fontSize = '28px'
-              endSubhead.position.set(stageW / 2 - endSubhead.width / 2, stageH / 2 - endSubhead.height );
+	          endSubhead.position.set(stageW / 2, stageH / 2 - endSubhead.height + 5 );
 
 
 
@@ -935,30 +865,20 @@ var gamePlayTimerIncrease = false;
 	          endframeLogo.position.set(stageW/2, endframeLogo.height/2 + 60);
 
 	          endframeCandy.anchor.set(0.5);
-	          endframeCandy.position.set(stageW/2, endframeLogo.height/2 + 60);
-
+	          endframeCandy.position.set(stageW/2, endframeLogo.height/2 + 20);
 	          t.set(endframeCandy, {pixi:{scale:.35}})
 
-	          //t.set(endframeAirheadLogo, {pixi:{scale:.55}})
-	          //endframeAirheadLogo.anchor.set(0.5);
-	          //endframeAirheadLogo.position.set(stageW/2, stageH - endframeAirheadLogo.height/2 - 35);
-
-	          endframeAirheadLogo.scale.set(0.58);
-              endframeAirheadLogo.position.set( (stageW / 2) - 4  , (stageH - 25) - endframeAirheadLogo.height / 2 );
+	          t.set(endframeAirheadLogo, {pixi:{scale:.55}})
+	          endframeAirheadLogo.anchor.set(0.5);
+	          endframeAirheadLogo.position.set(stageW/2, stageH - endframeAirheadLogo.height/2 - 35);
 
 
-			  ctaHolderEndframe1.scale.set(0.55);
-              ctaHolderEndframe2.scale.set(0.55);
 
-              ctaHolderEndframe1.position.set(stageW / 2 - ctaHolderEndframe1.width / 2 - 10, stageH / 2 + 60);
-              ctaHolderEndframe2.position.set(stageW / 2 + ctaHolderEndframe2.width / 2 + 10, stageH / 2 + 60);
+	          t.set(ctaHolderEndframe1, {pixi:{scale:.55}})
+	          ctaHolderEndframe1.position.set(ctaHolderEndframe1.width/2 + 35, stageH - endframeAirheadLogo.height - ctaHolderEndframe1.height - 26);
 
-
-	          //t.set(ctaHolderEndframe1, {pixi:{scale:.55}})
-	          //ctaHolderEndframe1.position.set(ctaHolderEndframe1.width/2 + 35, stageH - endframeAirheadLogo.height - ctaHolderEndframe1.height - 26);
-
-	          //t.set(ctaHolderEndframe2, {pixi:{scale:.55}})
-	          //ctaHolderEndframe2.position.set(stageW-ctaHolderEndframe2.width/2 - 35, stageH - endframeAirheadLogo.height - ctaHolderEndframe2.height - 26);
+	          t.set(ctaHolderEndframe2, {pixi:{scale:.55}})
+	          ctaHolderEndframe2.position.set(stageW-ctaHolderEndframe2.width/2 - 35, stageH - endframeAirheadLogo.height - ctaHolderEndframe2.height - 26);
 
 
 	          //endCtaHolder1.position.set(stageW / 2 - endCtaHolder1.width / 2 - 10, stageH / 2 + 60);
@@ -973,13 +893,10 @@ var gamePlayTimerIncrease = false;
 			  yourScoreText.position.set(stageW / 2 - yourScoreText.width / 2, stageH / 2 - yourScoreText.height * 2 );
 
 
-	          //t.set(endSubhead, {pixi:{scale:.65}})
-	          //endSubhead.anchor.set(0.5);
+	          t.set(endSubhead, {pixi:{scale:.65}})
+	          endSubhead.anchor.set(0.5);
 	          //endSubhead.position.set(stageW / 2, endframeLogo.height + yourScoreText.height * 2);
-	          //endSubhead.position.set(stageW / 2, stageH / 2 - endSubhead.height + 20 );
-
-	          endSubhead.style.fontSize = '28px'
-              endSubhead.position.set(stageW / 2 - endSubhead.width / 2, stageH / 2 - endSubhead.height );
+	          endSubhead.position.set(stageW / 2, stageH / 2 - endSubhead.height + 20 );
 
 
 
@@ -1675,82 +1592,29 @@ var gamePlayTimerIncrease = false;
 
   */
 
-  var mSpring = 0.03;
-  var yFix = 0;
 
   // this is working ok but not perfect
 	function handleAirHead() {
       if(touchDevice) {
 
-	      function initTouchAirheadFix() {
-		  	yFix = 30;
-
-	      }
-
 		//ragdoll stuff
-		function handleTouch(e) {
-			ex = e.data.global.x - 110;
-			ey = e.data.global.y - 90;
-			dx = (ex - airHead.x) * easing;
-			dy = ((ey - 120 ) - (airHead.y)) * easing;
-			ax = dx * mSpring;
-			ay = dy * mSpring;
-			vx += ax;
-			vy += ay;
-			vx *= friction;
-			vy *= friction;
-		}
-
-		t.to(head, .75, {pixi:{rotation: ax*-6}});
-		t.to(leftLeg, .3, {pixi:{rotation: (ax*4) + ((ay+5.3)*-2)}});
-		t.to(rightLeg, .3, {pixi:{rotation: (ax*4) + ((ay+5.3)*2)}});
-		t.to(leftArm, .1, {pixi:{rotation: (ax*4) + ((ay+5.3)*-2)}});
-		t.to(rightArm, .1, {pixi:{rotation: (ax*4) + ((ay+5.3)*2)}});
-		t.to(lowerLeftArm, .1, {pixi:{rotation: (ax*4) + ((ay+5.3)*-2)}});
-		t.to(lowerRightArm, .1, {pixi:{rotation: (ax*4) + ((ay+5.3)*2)}});
-		t.to(lowerLeftLeg, .1, {pixi:{rotation: (ax*4) + ((ay+5.3)*-2)}});
-		t.to(lowerRightLeg, .1, {pixi:{rotation: (ax*4) + ((ay+5.3)*2)}});
-		t.to(braid, 1, {pixi:{rotation: (ax*15) + ((ay+5.3)*15)}});
-
-
-
-		airHead.x += vx;
-		airHead.y += vy + yFix;
-
-
         stageHit.on('pointermove', handleTouch);
-		stageHit.on('pointerdown', initTouchAirheadFix);
-
 
       } else {
-
 		mousePos = Utils.getMousePosition();
-		dy = (mousePos.y - airHead.y - 150) * easing;
-		dx = (mousePos.x - airHead.x - 90) * easing;
+		dy = (mousePos.y - airHead.y) * easing;
+		dx = (mousePos.x - airHead.x) * easing;
 		ax = dx * spring;
 		ay = dy * spring;
 		vx += ax;
 		vy += ay;
 		vx *= friction;
 		vy *= friction;
-
-		t.to(head, .75, {pixi:{rotation: ax*-6}});
-		t.to(leftLeg, .3, {pixi:{rotation: (ax*4) + ((ay+5.3)*-2)}});
-		t.to(rightLeg, .3, {pixi:{rotation: (ax*4) + ((ay+5.3)*2)}});
-		t.to(leftArm, .1, {pixi:{rotation: (ax*4) + ((ay+5.3)*-2)}});
-		t.to(rightArm, .1, {pixi:{rotation: (ax*4) + ((ay+5.3)*2)}});
-		t.to(lowerLeftArm, .1, {pixi:{rotation: (ax*4) + ((ay+5.3)*-2)}});
-		t.to(lowerRightArm, .1, {pixi:{rotation: (ax*4) + ((ay+5.3)*2)}});
-		t.to(lowerLeftLeg, .1, {pixi:{rotation: (ax*4) + ((ay+5.3)*-2)}});
-		t.to(lowerRightLeg, .1, {pixi:{rotation: (ax*4) + ((ay+5.3)*2)}});
-		t.to(braid, 1, {pixi:{rotation: (ax*15) + ((ay+5.3)*15)}});
-
-		airHead.y += vy + 30;
-		airHead.x += vx;
+	//	airHead.y += vy + 30;
+//		airHead.x += vx;
 
       }
 		//ragdoll stuff
-		/*
 		t.to(head, .75, {pixi:{rotation: ax*-6}});
 		t.to(leftLeg, .3, {pixi:{rotation: (ax*4) + ((ay+5.3)*-2)}});
 		t.to(rightLeg, .3, {pixi:{rotation: (ax*4) + ((ay+5.3)*2)}});
@@ -1761,9 +1625,8 @@ var gamePlayTimerIncrease = false;
 		t.to(lowerLeftLeg, .1, {pixi:{rotation: (ax*4) + ((ay+5.3)*-2)}});
 		t.to(lowerRightLeg, .1, {pixi:{rotation: (ax*4) + ((ay+5.3)*2)}});
 		t.to(braid, 1, {pixi:{rotation: (ax*15) + ((ay+5.3)*15)}});
-		*/
-        //airHead.y += vy + 30;
-		//airHead.x += vx;
+        airHead.y += vy + 30;
+		airHead.x += vx;
 
       /*
       console.log("dx is " + dx);
@@ -1776,10 +1639,10 @@ var gamePlayTimerIncrease = false;
 
 	}
 
-
-	function handleTouch_(e) {
-		ex = e.data.global.x - 110;
-		ey = e.data.global.y - 90;
+	var mSpring = 0.03;
+	function handleTouch(e) {
+		ex = e.data.global.x;
+		ey = e.data.global.y - 100;
 		dx = (ex - airHead.x) * easing;
 		dy = ((ey - 120 ) - (airHead.y)) * easing;
 		ax = dx * mSpring;
@@ -1860,23 +1723,7 @@ var gamePlayTimerIncrease = false;
        // ad.customEvent('Game Completed');
 
 		endframe.visible = true;
-
-		//yourScoreText.setText('Your score: ' + score + ' ');
-
-		yourScoreText.setText(' Your score: ' + score + ' ');
-
-		if (screenSize === 'desktop') {
-			yourScoreText.position.set(stageW / 3 - yourScoreText.width / 2, 168);
-		} else if ( screenSize === 'tablet' ) {
-			yourScoreText.position.set(stageW / 3 - yourScoreText.width / 2, stageH / 2 - yourScoreText.height );
-		} else if ( screenSize === 'mobile') {
-			yourScoreText.position.set(stageW / 2 - yourScoreText.width / 2, stageH / 2 - yourScoreText.height * 2 );
-		}
-
-
-
-
-
+		yourScoreText.setText('Your score: ' + score + ' ');
 		ticker.stop()
 
 		if(won == true) {

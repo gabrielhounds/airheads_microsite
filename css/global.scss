@@ -114,12 +114,16 @@ header {
 	.logo {
 		top: 0;
 		width: 100%;
-		height: 60%;
+		height: 55%;
 		margin: 1%;
 		background-image: url(../images/airheads_header_logo.png);
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: center center;
+
+		@media (max-height: 800px) {
+			height: 30%;
+		}
 	}
 
 	.divider {
@@ -138,6 +142,10 @@ header {
 		height: 20%;
 		display: flex;
 		//border: 1px solid black;
+		@media (max-height: 600px) {
+			//height: 30%;
+			display: none;
+		}
 
 		p {
 			align-self: center;
@@ -193,14 +201,16 @@ header {
 
 	#gameContainer {
 		position: absolute;
-		background-color: #000;
+		//background-color: #000;
 		width: 1280px;
 		height: 500px;
 
 		@include tablet {
+			position: absolute;
+			display: block;
 			width: 100%;
 			height: 500px;
-			bottom: 0;
+
 		}
 
 		@include mobile {
@@ -242,7 +252,14 @@ header {
 }
 
 
+#game {
+	@include tablet {
+		position: absolute;
+		top: 50%;
+		transform: translate(0, -50%);
+	}
 
+}
 
 
 

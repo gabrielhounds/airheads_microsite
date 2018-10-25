@@ -74,6 +74,9 @@ main {
 
 	@include portrait {
 		flex-direction: column;
+		//background-color: aqua;
+		height: 75%;
+		top: 25%;
 	}
 
 	.game_logo {

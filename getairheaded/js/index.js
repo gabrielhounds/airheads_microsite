@@ -26,29 +26,30 @@ function init() {
 	Text = (function() {
 		var interfaceTextStyle = new PIXI.TextStyle({
 			align : 'center',
-			fontFamily: 'uniform_roundedbold, Arial',
+			fontFamily: 'uniform_roundedbold',
 			fontSize: '28px',
 			letterSpacing: 1,
 			fill: '0xFFFFFF',
 		});
 		var ctaTextStyle = new PIXI.TextStyle({
 			align : 'center',
-			fontFamily: 'uniform_roundedbold, Arial',
+			fontFamily: 'uniform_roundedbold',
 			fontSize: '28px',
-			letterSpacing: -2,
+			letterSpacing: 1,
 			fill: '0xFFFFFF',
 		});
 		var subHeadTextStyle = new PIXI.TextStyle({
 			align : 'center',
 			fontSize: '36px',
-			fontFamily:'uniform_roundedblack, Arial',
+			//fontFamily:'uniform_roundedblack, Arial',
+			fontFamily: 'uniform_roundedbold',
 			fill: '0xFFFFFF',
 			letterSpacing:1
 		});
 		var yourScoreTextStyle = new PIXI.TextStyle({
 			align : 'center',
 			fontSize: '100px',
-			fontFamily:'uniform_roundedultra, Arial',
+			fontFamily:'uniform_roundedultra',
 			fill: '0xFFFFFF',
 			letterSpacing: -4
 		});
@@ -331,7 +332,7 @@ function init() {
 			$(game).css({width:'100%', height:'100%'});
 			$(gameHolder).css({width:'100%', height:'100%', top:0, left:0});
 			$(gameContainer).css({width:'100%', height:'100%', top:0, left:0, transform:'translate(0)'});
-			app = new Application({width : _width, height : _height, forceCanvas : true});
+			app = new Application({width : _width, height : _height, forceCanvas : false});
 
 			minCandyScale = 2;
 			maxCandyScale = 3;
@@ -978,12 +979,23 @@ function init() {
 		ahLogo.animationSpeed = 0.3;
 		ahLogo.loop = false;
 		if (screenSize === 'desktop') {
+
 			overlay.position.set(stageW - overlay.width, 0);
 			gaLogo.scale.x = gaLogo.scale.y = 0.75;
 			gaLogo.position.set(stageW / 3 - gaLogo.width / 2, 50);
 			ctaHolder.position.set( stageW / 3, stageH / 2 + 145);
 			ahLogo.position.set(stageW - ahLogo.width / 2, 160);
 			instructionText.position.set((overlay.x + overlay.width / 2) - instructionText.width / 2, stageH - instructionText.height - 60);
+
+			instructionText.alpha = 0;
+			overlay.alpha = 0;
+			ahLogo.alpha = 0;
+
+			gaLogo.position.set(stageW / 2 - gaLogo.width / 2, 50);
+			ctaHolder.position.set( stageW / 2, stageH / 2 + 145);
+
+
+
 		} else if ( screenSize === 'tablet' ) {
 
 			//alert('LANDSCAPE');
@@ -1016,30 +1028,38 @@ function init() {
 		} else if ( screenSize === 'mobile') {
 			instructionText.setText(" Drag your finger.\nCatch some candy.\nIt's that easy. ")
 			if (screenHeight === 'small') {
+
 				overlay.anchor.set(0.5);
 				overlay.width = stageW;
 				overlay.rotation = (Math.PI / 180) * 90;
 				overlay.position.set(stageW - overlay.width / 2, stageH - 80);
-				gaLogo.scale.set(0.3);
-				gaLogo.position.set(stageW / 2 - gaLogo.width / 2 - 20, 60);
+
+				//gaLogo.scale.set(0.3);
+				gaLogoEnd.scale.set(0.20);
+				gaLogo.position.set(stageW / 2 - gaLogo.width / 2, 60);
+
 				ctaHolder.scale.set(0.6);
 				ctaHolder.position.set( stageW / 2, stageH / 2 - ctaHolder.height / 2 );
+
 				ahLogo.scale.set(0.4);
 				ahLogo.position.set( stageW / 2, stageH / 2 + ahLogo.height / 2 - 20);
+
 				instructionText.style.fontSize = '16px';
 				instructionText.style.letterSpacing = 1;
 				instructionText.position.set( stageW / 2 - instructionText.width / 2, stageH - instructionText.height - 20);
 			} else {
+
 				overlay.anchor.set(0.5);
-				//overlay.width = stageW;
-				overlay.rotation = (Math.PI / 180) * 90;
 				overlay.width = stageW;
+				overlay.rotation = (Math.PI / 180) * 90;
 				overlay.position.set(stageW - overlay.width / 2, stageH - 80);
-				overlay.scale.x = overlay.scale.y = stageW / 1000;
-				gaLogo.scale.set(0.4);
-				gaLogo.position.set(stageW / 2 - gaLogo.width / 2 - 20, 60);
+
+				gaLogo.scale.set(0.35);
+				gaLogo.position.set(stageW / 2 - gaLogo.width / 2, 60);
+
 				ctaHolder.scale.set(0.8);
 				ctaHolder.position.set( stageW / 2, stageH / 2 - ctaHolder.height / 2);
+
 				ahLogo.scale.set(0.55);
 				ahLogo.position.set( stageW / 2, stageH / 2 + ahLogo.height / 2 - 20);
 
@@ -1223,35 +1243,46 @@ function init() {
 			ahLogoEnd.scale.set(0.60);
 			ahLogoEnd.position.set( stageW - ahLogoEnd.width / 2 + 40, stageH / 2 );
 		} else if ( screenSize === 'mobile') {
+
           	if (screenHeight === 'small') {
-              gaLogoEnd.scale.set(0.25);
+
+              gaLogoEnd.scale.set(0.20);
               gaLogoEnd.position.set(stageW / 2 - gaLogoEnd.width / 2, 20);
+
               yourScoreText.style.fontSize = '40px';
               yourScoreText.style.letterSpacing = 0.25;
               yourScoreText.position.set(stageW / 2 - yourScoreText.width / 2, stageH / 2 - yourScoreText.height * 2 );
+
               endSubhead.style.fontSize = '28px'
               endSubhead.position.set(stageW / 2 - endSubhead.width / 2, stageH / 2 - endSubhead.height );
+
               endCtaHolder1.scale.set(0.50);
               endCtaHolder2.scale.set(0.50);
               endCtaHolder1.position.set(stageW / 2 - endCtaHolder1.width / 2 - 10, stageH / 2 + 60);
               endCtaHolder2.position.set(stageW / 2 + endCtaHolder2.width / 2 + 10, stageH / 2 + 60);
+
               ahLogoEnd.scale.set(0.40);
               ahLogoEnd.position.set( stageW / 2  , stageH - ahLogoEnd.height / 2 );
             } else {
               //log ('position mobile EndFrame');
               overlayEnd.width = stageW;
               overlayEnd.height = stageH;
+
               gaLogoEnd.scale.set(0.35);
               gaLogoEnd.position.set(stageW / 2 - gaLogoEnd.width / 2, 60);
+
               yourScoreText.style.fontSize = '40px';
               yourScoreText.style.letterSpacing = 0.25;
               yourScoreText.position.set(stageW / 2 - yourScoreText.width / 2, stageH / 2 - yourScoreText.height * 2 );
+
               endSubhead.style.fontSize = '28px'
               endSubhead.position.set(stageW / 2 - endSubhead.width / 2, stageH / 2 - endSubhead.height );
+
               endCtaHolder1.scale.set(0.55);
               endCtaHolder2.scale.set(0.55);
               endCtaHolder1.position.set(stageW / 2 - endCtaHolder1.width / 2 - 10, stageH / 2 + 60);
               endCtaHolder2.position.set(stageW / 2 + endCtaHolder2.width / 2 + 10, stageH / 2 + 60);
+
               ahLogoEnd.scale.set(0.60);
               ahLogoEnd.position.set( stageW / 2  , stageH - ahLogoEnd.height / 2 );
             }

@@ -6,6 +6,8 @@ $color-test: aqua;
 $width: 2048px;
 $height: 1200px;
 
+
+
 @mixin portrait {
 	@media all and (orientation : portrait) {
 		@content;
@@ -39,6 +41,13 @@ header {
 		display: none;
 	}
 }
+
+
+.test {
+	font-family: 'uniform_roundedblack';
+	//display: none;
+}
+
 
 
 
