@@ -369,6 +369,7 @@ var gamePlayTimerIncrease = false;
 		ctaText.style = Text.ctaTextStyle;
 
 
+
 		introBG 		= new PIXI.Sprite(resources['introBG.jpg'].texture);
 		introCandy 		= new PIXI.Sprite(resources['introCandy.png'].texture);
 		introLogo 		= new PIXI.Sprite(resources['introLogoC.png'].texture);
@@ -528,7 +529,7 @@ var gamePlayTimerIncrease = false;
           introAirHeadLogo.scale.set(0.535);
           introAirHeadLogo.anchor.set(0.5);
           //introAirHeadLogo.position.set(stageW/2,stageH - introAirHeadLogo.height);
-		  introAirHeadLogo.position.set( stageW / 2 - 3, stageH / 2 + introAirHeadLogo.height / 2 + 18);
+		  introAirHeadLogo.position.set( stageW / 2 - 3, stageH / 2 + introAirHeadLogo.height / 2 + 40);
 
 
           //t.to(ctaHolder, 0, {pixi:{scale:.65, }});
@@ -536,6 +537,7 @@ var gamePlayTimerIncrease = false;
 
           ctaHolder.scale.set(0.8);
 		  ctaHolder.position.set( stageW / 2, stageH / 2 - ctaHolder.height / 2 - 30);
+		  ctaText.position.set(0, -2);
         }
 
 

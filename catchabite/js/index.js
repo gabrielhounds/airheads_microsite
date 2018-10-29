@@ -413,6 +413,7 @@ function init() {
 				bgSound.stop();
 			} });
 			endSubhead.setText(' Great job! ' );
+			endSubhead.position.set(stageW / 2 - endSubhead.width / 2, stageH / 2 - endSubhead.height );
 		} else {
 			//log('You Lost');
 			t.to(bgSound, 1.0, {volume:0, onComplete:function() {
@@ -420,6 +421,7 @@ function init() {
 				bgSound.stop();
 			} });
 			endSubhead.setText(' Nice Try! ' );
+			endSubhead.position.set(stageW / 2 - endSubhead.width / 2, stageH / 2 - endSubhead.height );
 		}
 		yourScoreText.setText(' Your score: ' + score + ' ');
 
@@ -814,14 +816,14 @@ function init() {
               overlay.rotation = (Math.PI / 180) * 90;
               overlay.position.set(stageW - overlay.width / 2, stageH - 80);
 
-              cabLogo.scale.set(0.3);
+              cabLogo.scale.set(0.35);
 			  cabLogo.position.set(stageW / 2 - cabLogo.width / 2, 60);
 
               ctaHolder.scale.set(0.6);
               ctaHolder.position.set( stageW / 2, stageH / 2 - ctaHolder.height / 2 );
 
                ahLogo.scale.set(0.4);
-               ahLogo.position.set( stageW / 2, stageH / 2 + ahLogo.height / 2 - 20);
+               ahLogo.position.set( stageW / 2, stageH / 2 + ahLogo.height / 2 );
 
                instructionText.style.fontSize = '16px';
                instructionText.style.letterSpacing = 1;
@@ -833,14 +835,14 @@ function init() {
                overlay.rotation = (Math.PI / 180) * 90;
                overlay.position.set(stageW - overlay.width / 2, stageH - 80);
 
-			   cabLogo.scale.set(0.4);
+			   cabLogo.scale.set(0.5);
 			   cabLogo.position.set(stageW / 2 - cabLogo.width / 2, 60);
 
 			   ctaHolder.scale.set(0.8);
 			   ctaHolder.position.set( stageW / 2, stageH / 2 - ctaHolder.height / 2);
 
                ahLogo.scale.set(0.55);
-               ahLogo.position.set( stageW / 2, stageH / 2 + ahLogo.height / 2 - 20);
+               ahLogo.position.set( stageW / 2, stageH / 2 + ahLogo.height / 2 );
 
                instructionText.style.fontSize = '18px';
                instructionText.style.letterSpacing = 1;

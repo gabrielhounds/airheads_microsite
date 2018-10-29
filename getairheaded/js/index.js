@@ -415,6 +415,7 @@ function init() {
 				bgSound.stop();
 			} });
 			endSubhead.setText(' Great job! ' );
+			endSubhead.position.set(stageW / 2 - endSubhead.width / 2, stageH / 2 - endSubhead.height );
 		} else {
 			//log('You Lost');
 			t.to(bgSound, 0.5, {voluem:0, onComplete:function() {
@@ -422,6 +423,7 @@ function init() {
 				bgSound.stop();
 			} });
 			endSubhead.setText(' Nice Try! ' );
+			endSubhead.position.set(stageW / 2 - endSubhead.width / 2, stageH / 2 - endSubhead.height );
 		}
 
 		yourScoreText.setText(' Your score: ' + score + ' ');
@@ -1042,7 +1044,7 @@ function init() {
 				ctaHolder.position.set( stageW / 2, stageH / 2 - ctaHolder.height / 2 );
 
 				ahLogo.scale.set(0.4);
-				ahLogo.position.set( stageW / 2, stageH / 2 + ahLogo.height / 2 - 20);
+				ahLogo.position.set( stageW / 2, stageH / 2 + ahLogo.height / 2 );
 
 				instructionText.style.fontSize = '16px';
 				instructionText.style.letterSpacing = 1;
@@ -1061,7 +1063,7 @@ function init() {
 				ctaHolder.position.set( stageW / 2, stageH / 2 - ctaHolder.height / 2);
 
 				ahLogo.scale.set(0.55);
-				ahLogo.position.set( stageW / 2, stageH / 2 + ahLogo.height / 2 - 20);
+				ahLogo.position.set( stageW / 2, stageH / 2 + ahLogo.height / 2 );
 
 				instructionText.style.fontSize = '18px';
 				instructionText.style.letterSpacing = 1;
