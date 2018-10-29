@@ -1374,32 +1374,32 @@ var gamePlayTimerIncrease = false;
 	function initAudio() {
 		// console.log("initAudio()")
 		bgSound = new Howl({
-			src : ['https://c1.undertonevideo.com/clients/Airheads/sounds/bg-sound.mp3'],
+			src : ['sounds/bg-sound.mp3'],
 			volume: 0.3,
 			loop: true,
 		});
 		flapSound = new Howl({
-			src : ['https://c1.undertonevideo.com/clients/Airheads/sounds/jump-sound.mp3'],
+			src : ['sounds/jump-sound.mp3'],
 			volume: 0.3
 		});
 		buttonSound = new Howl({
-			src : ['https://c1.undertonevideo.com/clients/Airheads/sounds/button-sound.mp3'],
+			src : ['sounds/button-sound.mp3'],
 			volume: 0.3
 		});
 		eatSound = new Howl({
-			src : ['https://c1.undertonevideo.com/clients/Airheads/sounds/eat-sound.mp3'],
+			src : ['sounds/eat-sound.mp3'],
 			volume: 0.3
 		});
 		loseSound = new Howl({
-			src : ['https://c1.undertonevideo.com/clients/Airheads/sounds/lose-sound.mp3'],
+			src : ['sounds/lose-sound.mp3'],
 			volume: 0.3
 		});
 		winSound = new Howl({
-			src : ['https://c1.undertonevideo.com/clients/Airheads/sounds/win-sound.mp3'],
+			src : ['sounds/win-sound.mp3'],
 			volume: 0.3
 		});
 		overSound = new Howl({
-			src : ['https://c1.undertonevideo.com/clients/Airheads/sounds/over-sound.mp3'],
+			src : ['sounds/over-sound.mp3'],
 			volume: 0.3
 		});
 
