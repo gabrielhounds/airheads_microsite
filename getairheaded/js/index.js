@@ -332,7 +332,7 @@ function init() {
 			$(game).css({width:'100%', height:'100%'});
 			$(gameHolder).css({width:'100%', height:'100%', top:0, left:0});
 			$(gameContainer).css({width:'100%', height:'100%', top:0, left:0, transform:'translate(0)'});
-			app = new Application({width : _width, height : _height, forceCanvas : false});
+			app = new Application({width : _width, height : _height});
 
 			minCandyScale = 2;
 			maxCandyScale = 3;
@@ -366,6 +366,7 @@ function init() {
 		}
 
 		app.renderer.backgroundColor = 0x0040A3;
+		PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.LINEAR;
 		$(app.view).appendTo(game);
 		stageW = app.renderer.view.width;
 		stageH = app.renderer.view.height;
@@ -415,15 +416,17 @@ function init() {
 				bgSound.stop();
 			} });
 			endSubhead.setText(' Great job! ' );
-			endSubhead.position.set(stageW / 2 - endSubhead.width / 2, stageH / 2 - endSubhead.height );
+			//endSubhead.position.set(stageW / 2 - endSubhead.width / 2, stageH / 2 - endSubhead.height );
 		} else {
 			//log('You Lost');
 			t.to(bgSound, 0.5, {voluem:0, onComplete:function() {
 				setTimeout( function() { overSound.play(); }, 300);
 				bgSound.stop();
 			} });
-			endSubhead.setText(' Nice Try! ' );
-			endSubhead.position.set(stageW / 2 - endSubhead.width / 2, stageH / 2 - endSubhead.height );
+			endSubhead.setText('  Nice Try! ' );
+
+
+			//endSubhead.position.set(stageW / 2 - endSubhead.width / 2, stageH / 2 - endSubhead.height );
 		}
 
 		yourScoreText.setText(' Your score: ' + score + ' ');
@@ -898,7 +901,7 @@ function init() {
 			playing = true;
 			ticker.start();
 			bgSound.play();
-			Howler.volume(0.01);
+			Howler.volume(0.5);
 		}
 		tlOutro.play();
 	}
@@ -1057,6 +1060,7 @@ function init() {
 				overlay.position.set(stageW - overlay.width / 2, stageH - 80);
 
 				gaLogo.scale.set(0.35);
+				//t.set(gaLogo, {pixi:{scale:0.35}});
 				gaLogo.position.set(stageW / 2 - gaLogo.width / 2, 60);
 
 				ctaHolder.scale.set(0.8);

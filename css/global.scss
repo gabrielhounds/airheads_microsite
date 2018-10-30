@@ -239,6 +239,7 @@ header {
 		width: 1356px;
 		height: 548px;
 		top: 8%;
+		display: none;
 		@include tablet {
 			display: none;
 		}

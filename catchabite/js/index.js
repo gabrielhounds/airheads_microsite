@@ -413,15 +413,15 @@ function init() {
 				bgSound.stop();
 			} });
 			endSubhead.setText(' Great job! ' );
-			endSubhead.position.set(stageW / 2 - endSubhead.width / 2, stageH / 2 - endSubhead.height );
+			//endSubhead.position.set(stageW / 2 - endSubhead.width / 2, stageH / 2 - endSubhead.height );
 		} else {
 			//log('You Lost');
 			t.to(bgSound, 1.0, {volume:0, onComplete:function() {
 				setTimeout( function() { overSound.play(); }, 300);
 				bgSound.stop();
 			} });
-			endSubhead.setText(' Nice Try! ' );
-			endSubhead.position.set(stageW / 2 - endSubhead.width / 2, stageH / 2 - endSubhead.height );
+			endSubhead.setText('  Nice Try! ' );
+			//endSubhead.position.set(stageW / 2 - endSubhead.width / 2, stageH / 2 - endSubhead.height );
 		}
 		yourScoreText.setText(' Your score: ' + score + ' ');
 
@@ -1086,7 +1086,7 @@ function init() {
 		t.to(loadingText, 0.3, {pixi:{alpha:0, y:'+=10'}, ease:Power3.easeOut, delay:0.5});
 		// Filters
 		mainBlur = new PIXI.filters.BlurFilter();
-		mainBlur.blur = 10;
+		mainBlur.blur = 8;
 		mainBlur.quality = 4;
 		//Textures
 		logoTextures = [resources['images/cab/logo00.png'].texture, resources['images/cab/logo01.png'].texture, resources['images/cab/logo02.png'].texture, resources['images/cab/logo03.png'].texture, resources['images/cab/logo04.png'].texture, resources['images/cab/logo05.png'].texture, resources['images/cab/logo06.png'].texture, resources['images/cab/logo07.png'].texture, resources['images/cab/logo08.png'].texture, resources['images/cab/logo09.png'].texture, resources['images/cab/logo10.png'].texture, resources['images/cab/logo11.png'].texture, resources['images/cab/logo12.png'].texture ];
@@ -1123,7 +1123,7 @@ function init() {
 
 		// -- score
 		scoreText 	= new PIXI.Text('00');
-		scoreIcon 	= new PIXI.Sprite(resources['images/cab/candy_00.png'].texture);
+		scoreIcon 	= new PIXI.Sprite(resources['images/cab/candy_scoreIcon.png'].texture);
 		scoreText.style = Text.interfaceTextStyle;
 		// -- Timer
 		timerSectors 		= 30;
@@ -1224,7 +1224,7 @@ function init() {
 		setPosition();
 	}
 	loader.add([
-		'images/cab/buildings.png', 'images/cab/hedge.png', 'images/cab/lightpost_foreground.png', 'images/cab/road.png', 'images/cab/sky.png', 'images/cab/trees.png', 'images/cab/overlayBg_@2x.png', 'images/cab/ah_body.png', 'images/cab/ah_head_00.png', 'images/cab/ah_head_01.png', 'images/cab/ah_head_02.png', 'images/cab/ah_leftArm.png', 'images/cab/ah_leftLeg.png', 'images/cab/ah_pelvis.png', 'images/cab/ah_rightArm.png', 'images/cab/ah_rightLeg.png', 'images/cab/candy_00.png', 'images/cab/candy_01.png', 'images/cab/candy_02.png', 'images/cab/candy_03.png', 'images/cab/candy_04.png', 'images/cab/candy_05.png', 'images/cab/candy_06.png', 'images/cab/heart.png', 'images/cab/cta_bg.png', 'images/cab/logo00.png', 'images/cab/logo01.png', 'images/cab/logo02.png', 'images/cab/logo03.png', 'images/cab/logo04.png', 'images/cab/logo05.png', 'images/cab/logo06.png', 'images/cab/logo07.png', 'images/cab/logo08.png', 'images/cab/logo09.png', 'images/cab/logo10.png', 'images/cab/logo11.png', 'images/cab/logo12.png', 'images/cab/cab_catch.png', 'images/cab/cab_a.png', 'images/cab/cab_bite.png', 'images/cab/cab_bg.png', 'images/cab/cab_candy1.png', 'images/cab/cab_candy2.png', 'images/cab/cab_candy3.png', 'images/cab/cab_candy4.png', 'images/cab/endOverlay.png', 'images/cab/ashleigh.png'
+		'images/cab/buildings.png', 'images/cab/hedge.png', 'images/cab/lightpost_foreground.png', 'images/cab/road.png', 'images/cab/sky.png', 'images/cab/trees.png', 'images/cab/overlayBg_@2x.png', 'images/cab/ah_body.png', 'images/cab/ah_head_00.png', 'images/cab/ah_head_01.png', 'images/cab/ah_head_02.png', 'images/cab/ah_leftArm.png', 'images/cab/ah_leftLeg.png', 'images/cab/ah_pelvis.png', 'images/cab/ah_rightArm.png', 'images/cab/ah_rightLeg.png', 'images/cab/candy_00.png', 'images/cab/candy_01.png', 'images/cab/candy_02.png', 'images/cab/candy_03.png', 'images/cab/candy_04.png', 'images/cab/candy_05.png', 'images/cab/candy_06.png', 'images/cab/heart.png', 'images/cab/cta_bg.png', 'images/cab/logo00.png', 'images/cab/logo01.png', 'images/cab/logo02.png', 'images/cab/logo03.png', 'images/cab/logo04.png', 'images/cab/logo05.png', 'images/cab/logo06.png', 'images/cab/logo07.png', 'images/cab/logo08.png', 'images/cab/logo09.png', 'images/cab/logo10.png', 'images/cab/logo11.png', 'images/cab/logo12.png', 'images/cab/cab_catch.png', 'images/cab/cab_a.png', 'images/cab/cab_bite.png', 'images/cab/cab_bg.png', 'images/cab/cab_candy1.png', 'images/cab/cab_candy2.png', 'images/cab/cab_candy3.png', 'images/cab/cab_candy4.png', 'images/cab/endOverlay.png', 'images/cab/ashleigh.png', 'images/cab/candy_scoreIcon.png'
 	]).on('progress', loadProgressHandler).load(setUp);
 
   ticker.add( function(delta){
