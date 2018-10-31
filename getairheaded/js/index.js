@@ -3,6 +3,8 @@ $(document).ready(function(){
 });
 function init() {
 
+	ga('create', 'UA-123255686-1', 'auto');
+
 	//var log = console.log;
 	//log('init');
 
@@ -377,6 +379,8 @@ function init() {
 	}
 
 	function setUpReplay() {
+		ga('send', 'event', 'Catch a Bite', 'Game Replayed');
+
 		//log('SET REPLAY');
 		buttonSound.play();
 		endCtaHolder1.off('pointerup');
@@ -486,9 +490,13 @@ function init() {
 		endFrame.position.set(0, 0);
 		tlGameOver.play();
 
+		ga('send', 'event', 'Catch a Bite', 'Game Finished');
+
 	}
 
 	function handleDeath() {
+
+		ga('send', 'event', 'Catch a Bite', 'Life Lost');
 
 		loseSound.play();
 		ticker.stop();
@@ -525,6 +533,9 @@ function init() {
 		head.onComplete = function() {
 			head.gotoAndStop(1);
 		}
+
+		ga('send', 'event', 'Catch a Bite', 'Piece of Candy Eaten');
+
 	}
 
 	function resetEnemy() {
@@ -904,6 +915,7 @@ function init() {
 			Howler.volume(0.5);
 		}
 		tlOutro.play();
+		ga('send', 'event', 'Catch a Bite', 'Game Played');
 	}
 
 	function buildStage() {

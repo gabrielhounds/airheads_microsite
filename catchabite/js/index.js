@@ -3,6 +3,9 @@ $(document).ready(function(){
 });
 
 function init() {
+
+	ga('create', 'UA-123255686-1', 'auto');
+
 	//var log = console.log;
 
 
@@ -315,6 +318,7 @@ function init() {
 		overSound.once('load', updateAudioProgress());
 	}
 	function setUpReplay() {
+		ga('send', 'event', 'Catch a Bite', 'Game Replayed');
 		//log('SET REPLAY');
 
 		buttonSound.play();
@@ -371,6 +375,7 @@ function init() {
 	}
 
 	function handleDeath() {
+		ga('send', 'event', 'Catch a Bite', 'Life Lost');
 		//log('You Died');
 		loseSound.play();
 		ticker.stop();
@@ -399,6 +404,7 @@ function init() {
 		}
 	}
 	function handleGameOver( won ) {
+		ga('send', 'event', 'Catch a Bite', 'Game Finished');
       	hitRect.off('pointerup');
 		playing = false;
       	gameFinished = true;
@@ -615,6 +621,7 @@ function init() {
 		bgSpeedMod += 0.0001;
 		candySpeedMod += 0.0003;
 		eatSound.play();
+		ga('send', 'event', 'Catch a Bite', 'Piece of Candy Eaten');
 	}
 
   	// when the character hits the top of the Stage.
@@ -673,6 +680,7 @@ function init() {
         }
 		tlOutro.play();
 		hitRect.on('pointerup', handleFlap);
+		ga('send', 'event', 'Catch a Bite', 'Game Played');
 	}
 	function buildStage() {
 		//log('BUILD STAGE');

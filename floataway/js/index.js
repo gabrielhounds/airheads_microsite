@@ -18,6 +18,8 @@ $(document).ready(function(){
 
 function init() {
 
+	ga('create', 'UA-123255686-1', 'auto');
+
 
 	var log = console.log;
 	// log('init');
