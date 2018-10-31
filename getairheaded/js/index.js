@@ -1316,25 +1316,25 @@ function init() {
 		//  INTRO
 		// -----------
 
-		logoTextures = [resources['logo00.png'].texture, resources['logo01.png'].texture, resources['logo02.png'].texture, resources['logo03.png'].texture, resources['logo04.png'].texture, resources['logo05.png'].texture, resources['logo06.png'].texture, resources['logo07.png'].texture, resources['logo08.png'].texture, resources['logo09.png'].texture, resources['logo10.png'].texture, resources['logo11.png'].texture, resources['logo12.png'].texture ];
+		logoTextures = [resources['images/logo00.png'].texture, resources['images/logo01.png'].texture, resources['images/logo02.png'].texture, resources['images/logo03.png'].texture, resources['images/logo04.png'].texture, resources['images/logo05.png'].texture, resources['images/logo06.png'].texture, resources['images/logo07.png'].texture, resources['images/logo08.png'].texture, resources['images/logo09.png'].texture, resources['images/logo10.png'].texture, resources['images/logo11.png'].texture, resources['images/logo12.png'].texture ];
 
 		intro = new PIXI.Container({width: stageW, height: stageH});
 		ctaHolder = new PIXI.Container();
 		ahLogo = new PIXI.extras.AnimatedSprite(logoTextures);
-		ctaBg = new PIXI.Sprite(resources['cta_bg.png'].texture);
+		ctaBg = new PIXI.Sprite(resources['images/cta_bg.png'].texture);
 		ctaText = new PIXI.Text(' Play now ');
-		overlay = new PIXI.Sprite(resources['overlayBg_@2X.png'].texture);
+		overlay = new PIXI.Sprite(resources['images/overlayBg_@2X.png'].texture);
 		instructionText = new PIXI.Text(" Drag your mouse.\nCatch some candy.\nIt's that easy. ");
 		ctaText.style 		= Text.ctaTextStyle;
 		instructionText.style = Text.interfaceTextStyle;
 		gaLogo = new PIXI.Container();
-		gaGet 		= new PIXI.Sprite(resources['ga_get.png'].texture);
-		gaAirheaded = new PIXI.Sprite(resources['ga_airheaded.png'].texture);
-		gaBg 		= new PIXI.Sprite(resources['ga_bg.png'].texture);
-		gaCandy1 	= new PIXI.Sprite(resources['ga_candy1.png'].texture);
-		gaCandy2 	= new PIXI.Sprite(resources['ga_candy2.png'].texture);
-		gaCandy3	= new PIXI.Sprite(resources['ga_candy3.png'].texture);
-		gaCandy4 	= new PIXI.Sprite(resources['ga_candy4.png'].texture);
+		gaGet 		= new PIXI.Sprite(resources['images/ga_get.png'].texture);
+		gaAirheaded = new PIXI.Sprite(resources['images/ga_airheaded.png'].texture);
+		gaBg 		= new PIXI.Sprite(resources['images/ga_bg.png'].texture);
+		gaCandy1 	= new PIXI.Sprite(resources['images/ga_candy1.png'].texture);
+		gaCandy2 	= new PIXI.Sprite(resources['images/ga_candy2.png'].texture);
+		gaCandy3	= new PIXI.Sprite(resources['images/ga_candy3.png'].texture);
+		gaCandy4 	= new PIXI.Sprite(resources['images/ga_candy4.png'].texture);
 		// -----------
 		//  MAIN
 		// -----------
@@ -1364,11 +1364,11 @@ function init() {
 		interfaceHolder = new PIXI.Container();
 		bgHolder.width = 1700;
 		bgHolder.height = 800;
-		sky_bg = new PIXI.Sprite(resources['sky_bg.jpg'].texture);
+		sky_bg = new PIXI.Sprite(resources['images/sky_bg.jpg'].texture);
 		// - interface
 		// -- score
 		scoreText 	= new PIXI.Text('0');
-		scoreIcon 	= new PIXI.Sprite(resources['candy_scoreIcon.png'].texture);
+		scoreIcon 	= new PIXI.Sprite(resources['images/candy_scoreIcon.png'].texture);
 		scoreText.style = Text.interfaceTextStyle;
 		// -- Timer
 		timerSectors 	= 30;
@@ -1384,12 +1384,12 @@ function init() {
 		timerIcon.arc(stageW - 80, stageH - 40, 10, (Math.PI / 180) * 0 , (Math.PI / 180) * 180, false);
 		// -- Hearts
 		heartHolder = new PIXI.Container();
-		heart1 		= new PIXI.Sprite(resources['heart.png'].texture);
-		heart2 		= new PIXI.Sprite(resources['heart.png'].texture);
-		heart3 		= new PIXI.Sprite(resources['heart.png'].texture);
+		heart1 		= new PIXI.Sprite(resources['images/heart.png'].texture);
+		heart2 		= new PIXI.Sprite(resources['images/heart.png'].texture);
+		heart3 		= new PIXI.Sprite(resources['images/heart.png'].texture);
 		// - AIRHEAD
 		airHead = new PIXI.Container();
-		headTextures = [resources['ah_head_00.png'].texture, resources['ah_head_01.png'].texture, resources['ah_head_01.png'].texture, resources['ah_head_02.png'].texture, resources['ah_head_02.png'].texture, resources['ah_head_02.png'].texture, resources['ah_head_02.png'].texture, resources['ah_head_02.png'].texture, resources['ah_head_02.png'].texture, resources['ah_head_02.png'].texture, resources['ah_head_01.png'].texture, resources['ah_head_01.png'].texture, resources['ah_head_01.png'].texture];
+		headTextures = [resources['images/ah_head_00.png'].texture, resources['images/ah_head_01.png'].texture, resources['images/ah_head_01.png'].texture, resources['images/ah_head_02.png'].texture, resources['images/ah_head_02.png'].texture, resources['images/ah_head_02.png'].texture, resources['images/ah_head_02.png'].texture, resources['images/ah_head_02.png'].texture, resources['images/ah_head_02.png'].texture, resources['images/ah_head_02.png'].texture, resources['images/ah_head_01.png'].texture, resources['images/ah_head_01.png'].texture, resources['images/ah_head_01.png'].texture];
 		// -- Head
 		head = new PIXI.extras.AnimatedSprite(headTextures);
 		head.loop = false;
@@ -1416,19 +1416,19 @@ function init() {
 		rightLeg = new PIXI.Container();
 		leftArm = new PIXI.Container();
 		rightArm = new PIXI.Container();
-		torso = new PIXI.Sprite(resources['ah_torso.png'].texture);
-		pelvis = new PIXI.Sprite(resources['ah_pelvis.png'].texture);
-		lowerLeftLeg = new PIXI.Sprite(resources['ah_lowerLeftLeg.png'].texture);
-		lowerRightLeg = new PIXI.Sprite(resources['ah_lowerRightLeg.png'].texture);
-		upperLeftLeg = new PIXI.Sprite(resources['ah_upperLeftLeg.png'].texture);
-		upperRightLeg = new PIXI.Sprite(resources['ah_upperRightLeg.png'].texture);
-		lowerRightArm = new PIXI.Sprite(resources['ah_lowerRightArm.png'].texture);
-		lowerLeftArm = new PIXI.Sprite(resources['ah_lowerLeftArm.png'].texture);
-		upperRightArm = new PIXI.Sprite(resources['ah_upperRightArm.png'].texture);
-		upperLeftArm = new PIXI.Sprite(resources['ah_upperLeftArm.png'].texture);
+		torso = new PIXI.Sprite(resources['images/ah_torso.png'].texture);
+		pelvis = new PIXI.Sprite(resources['images/ah_pelvis.png'].texture);
+		lowerLeftLeg = new PIXI.Sprite(resources['images/ah_lowerLeftLeg.png'].texture);
+		lowerRightLeg = new PIXI.Sprite(resources['images/ah_lowerRightLeg.png'].texture);
+		upperLeftLeg = new PIXI.Sprite(resources['images/ah_upperLeftLeg.png'].texture);
+		upperRightLeg = new PIXI.Sprite(resources['images/ah_upperRightLeg.png'].texture);
+		lowerRightArm = new PIXI.Sprite(resources['images/ah_lowerRightArm.png'].texture);
+		lowerLeftArm = new PIXI.Sprite(resources['images/ah_lowerLeftArm.png'].texture);
+		upperRightArm = new PIXI.Sprite(resources['images/ah_upperRightArm.png'].texture);
+		upperLeftArm = new PIXI.Sprite(resources['images/ah_upperLeftArm.png'].texture);
 		// - Candy
 		candyHolder 	= new PIXI.Container();
-		candyTextures = [resources['candy_01.png'].texture, resources['candy_02.png'].texture, resources['candy_03.png'].texture, resources['candy_04.png'].texture, resources['candy_05.png'].texture, resources['candy_06.png'].texture];
+		candyTextures = [resources['images/candy_01.png'].texture, resources['images/candy_02.png'].texture, resources['images/candy_03.png'].texture, resources['images/candy_04.png'].texture, resources['images/candy_05.png'].texture, resources['images/candy_06.png'].texture];
 		candy0 = new PIXI.extras.AnimatedSprite(candyTextures);
 		candy1 = new PIXI.extras.AnimatedSprite(candyTextures);
 		candy2 = new PIXI.extras.AnimatedSprite(candyTextures);
@@ -1437,7 +1437,7 @@ function init() {
 		candy1.gotoAndStop(Utils.random(0, 6));
 		candy2.gotoAndStop(Utils.random(0, 6));
 		candy3.gotoAndStop(Utils.random(0, 6));
-		enemyTextures = [resources['cat.png'].texture, resources['duck.png'].texture, resources['flamingo.png'].texture, resources['beachBall.png'].texture, resources['duck.png'].texture];
+		enemyTextures = [resources['images/cat.png'].texture, resources['images/duck.png'].texture, resources['images/flamingo.png'].texture, resources['images/beachBall.png'].texture, resources['images/duck.png'].texture];
 		enemy = new PIXI.extras.AnimatedSprite(enemyTextures);
 		enemy.gotoAndStop(Utils.random(0, 4));
 		// -----------
@@ -1449,19 +1449,19 @@ function init() {
 		gaLogoEnd 		= new PIXI.Container();
 		yourScoreText 	= new PIXI.Text('Your score: 0   ');
 		endSubhead 	= new PIXI.Text(' Great job! ' );
-		gaGetEnd 		= new PIXI.Sprite(resources['ga_get.png'].texture);
-		gaAirheadedEnd = new PIXI.Sprite(resources['ga_airheaded.png'].texture);
-		gaBgEnd 		= new PIXI.Sprite(resources['ga_bg.png'].texture);
-		gaCandy1End 	= new PIXI.Sprite(resources['ga_candy1.png'].texture);
-		gaCandy2End 	= new PIXI.Sprite(resources['ga_candy2.png'].texture);
-		gaCandy3End	= new PIXI.Sprite(resources['ga_candy3.png'].texture);
-		gaCandy4End 	= new PIXI.Sprite(resources['ga_candy4.png'].texture);
-		endCtaBg1 		= new PIXI.Sprite(resources['cta_bg.png'].texture);
-		endCtaBg2 		= new PIXI.Sprite(resources['cta_bg.png'].texture);
+		gaGetEnd 		= new PIXI.Sprite(resources['images/ga_get.png'].texture);
+		gaAirheadedEnd = new PIXI.Sprite(resources['images/ga_airheaded.png'].texture);
+		gaBgEnd 		= new PIXI.Sprite(resources['images/ga_bg.png'].texture);
+		gaCandy1End 	= new PIXI.Sprite(resources['images/ga_candy1.png'].texture);
+		gaCandy2End 	= new PIXI.Sprite(resources['images/ga_candy2.png'].texture);
+		gaCandy3End	= new PIXI.Sprite(resources['images/ga_candy3.png'].texture);
+		gaCandy4End 	= new PIXI.Sprite(resources['images/ga_candy4.png'].texture);
+		endCtaBg1 		= new PIXI.Sprite(resources['images/cta_bg.png'].texture);
+		endCtaBg2 		= new PIXI.Sprite(resources['images/cta_bg.png'].texture);
 		endCtaText1 	= new PIXI.Text(' Play again ');
 		endCtaText2 	= new PIXI.Text(' Find a pack ');
 		ahLogoEnd 		= new PIXI.extras.AnimatedSprite(logoTextures);
-		overlayEnd 	    = new PIXI.Sprite(resources['endOverlay.png'].texture);
+		overlayEnd 	    = new PIXI.Sprite(resources['images/endOverlay.png'].texture);
 		yourScoreText.style 	= Text.yourScoreTextStyle;
 		endSubhead.style 		= Text.subHeadTextStyle;
 		endCtaText1.style 		= Text.ctaTextStyle;
@@ -1476,57 +1476,57 @@ function init() {
 	}
 
 	loader.add([
-		'sky_bg_test.jpg',
-		'sky_bg.jpg',
-		'heart.png',
-		'candy_scoreIcon.png',
-		'candy_00.png',
-		'candy_01.png',
-		'candy_02.png',
-		'candy_03.png',
-		'candy_04.png',
-		'candy_05.png',
-		'candy_06.png',
-		'cat.png',
-		'duck.png',
-		'flamingo.png',
-		'beachBall.png',
-		'ah_head_00.png',
-		'ah_head_01.png',
-		'ah_head_02.png',
-		'ah_lowerLeftArm.png',
-		'ah_lowerLeftLeg.png',
-		'ah_lowerRightArm.png',
-		'ah_lowerRightLeg.png',
-		'ah_pelvis.png',
-		'ah_torso.png',
-		'ah_upperLeftArm.png',
-		'ah_upperLeftLeg.png',
-		'ah_upperRightArm.png',
-		'ah_upperRightLeg.png',
-		'cta_bg.png',
-		'logo00.png',
-		'logo01.png',
-		'logo02.png',
-		'logo03.png',
-		'logo04.png',
-		'logo05.png',
-		'logo06.png',
-		'logo07.png',
-		'logo08.png',
-		'logo09.png',
-		'logo10.png',
-		'logo11.png',
-		'logo12.png',
-		'overlayBg_@2X.png',
-		'ga_airheaded.png',
-		'ga_get.png',
-		'ga_bg.png',
-		'ga_candy1.png',
-		'ga_candy2.png',
-		'ga_candy3.png',
-		'ga_candy4.png',
-		'endOverlay.png'
+		'images/sky_bg_test.jpg',
+		'images/sky_bg.jpg',
+		'images/heart.png',
+		'images/candy_scoreIcon.png',
+		'images/candy_00.png',
+		'images/candy_01.png',
+		'images/candy_02.png',
+		'images/candy_03.png',
+		'images/candy_04.png',
+		'images/candy_05.png',
+		'images/candy_06.png',
+		'images/cat.png',
+		'images/duck.png',
+		'images/flamingo.png',
+		'images/beachBall.png',
+		'images/ah_head_00.png',
+		'images/ah_head_01.png',
+		'images/ah_head_02.png',
+		'images/ah_lowerLeftArm.png',
+		'images/ah_lowerLeftLeg.png',
+		'images/ah_lowerRightArm.png',
+		'images/ah_lowerRightLeg.png',
+		'images/ah_pelvis.png',
+		'images/ah_torso.png',
+		'images/ah_upperLeftArm.png',
+		'images/ah_upperLeftLeg.png',
+		'images/ah_upperRightArm.png',
+		'images/ah_upperRightLeg.png',
+		'images/cta_bg.png',
+		'images/logo00.png',
+		'images/logo01.png',
+		'images/logo02.png',
+		'images/logo03.png',
+		'images/logo04.png',
+		'images/logo05.png',
+		'images/logo06.png',
+		'images/logo07.png',
+		'images/logo08.png',
+		'images/logo09.png',
+		'images/logo10.png',
+		'images/logo11.png',
+		'images/logo12.png',
+		'images/overlayBg_@2X.png',
+		'images/ga_airheaded.png',
+		'images/ga_get.png',
+		'images/ga_bg.png',
+		'images/ga_candy1.png',
+		'images/ga_candy2.png',
+		'images/ga_candy3.png',
+		'images/ga_candy4.png',
+		'images/endOverlay.png'
 	]).on('progress', loadProgressHandler).load(setUp);
 
 

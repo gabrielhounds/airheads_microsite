@@ -836,7 +836,7 @@ function init() {
                overlay.position.set(stageW - overlay.width / 2, stageH - 80);
 
 			   cabLogo.scale.set(0.5);
-			   cabLogo.position.set(stageW / 2 - cabLogo.width / 2, 60);
+			   cabLogo.position.set(stageW / 2 - cabLogo.width / 2, 50);
 
 			   ctaHolder.scale.set(0.8);
 			   ctaHolder.position.set( stageW / 2, stageH / 2 - ctaHolder.height / 2);
@@ -951,6 +951,8 @@ function init() {
 		main.addChild(lightpoles);
 		main.addChild(interfaceHolder);
 		main.addChild(hitRect);
+		//main.scale.set(1.1);
+		//main.position.set(-10, -10);
 		// -------
 		//  END FRAME
 		// -------
