@@ -238,12 +238,12 @@ var gamePlayTimerIncrease = false;
 			screenSize = 'desktop';
 			$(game).css({width:ghWidth, height:500});
 			app = new Application({width : ghWidth, height : 500, legacy : true});
-			log(screenSize);
+			//log(screenSize);
 		} else if (_width < 1280 && _width >= 768 ) {
 			screenSize = 'tablet';
 			$(game).css({width:'100%', height:500});
 			app = new Application({width : ghWidth, height : 500});
-			log(screenSize);
+			//log(screenSize);
 		} else if ( _width < 768 ) {
 
 		if(isMobile === true) {
