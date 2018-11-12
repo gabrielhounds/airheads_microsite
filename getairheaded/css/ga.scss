@@ -18,6 +18,12 @@ $height: 1200px;
 	}
 }
 
+@mixin tablet {
+	@media all and (min-width : 768px) and (max-width : 1280px) {
+		@content;
+	}
+}
+
 @mixin mobile {
 	@media all and (max-width : 768px) {
 		@content;
@@ -26,6 +32,7 @@ $height: 1200px;
 
 main {
 	display: flex;
+	flex-basis: auto;
 	flex-direction: column;
 	top: 0;
 	left: 0;
@@ -39,6 +46,7 @@ header {
 		display: none;
 	}
 }
+
 
 
 

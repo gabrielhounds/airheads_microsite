@@ -1,5 +1,6 @@
 main {
   display: flex;
+  flex-basis: auto;
   flex-direction: column;
   top: 0;
   left: 0;

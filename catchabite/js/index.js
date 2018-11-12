@@ -70,7 +70,7 @@ function init() {
 	var interfaceHolder, heartHolder, timerHolder, scoreHolder;
 	var timerSectors, timerSectorLength, beginAngle;
 	var heart1, heart2, heart3;
-    var rotateAlert;
+    //var rotateAlert;
 	// INTRO
 	var ctaBg, ctaText, ctaHolder, overlay, ahLogo, logoTextures, instructionText, cabLogo, cabCatch, cabA, cabBite, cabBg, cabCandy1, cabCandy2, cabCandy3, cabCandy4, intro;
 	//MAIN
@@ -188,12 +188,12 @@ function init() {
 	};
 
 	var gameHolder = $('.game');
-	var gameHolderShadow = $('.gameHolderShadow');
+	//var gameHolderShadow = $('.gameHolderShadow');
 	var gameContainer = $('#gameContainer');
 
 
 	var ghWidth = $(gameContainer).width();
-	var ghsWidth = $(gameHolderShadow).width();
+	//var ghsWidth = $(gameHolderShadow).width();
 
 	var game = $('<div>', {id:'game'}).appendTo(gameContainer);
 
@@ -721,6 +721,9 @@ function init() {
 		});
 
       	ctaHolder.on('pointerup', setUpGame);
+
+
+      	//ctaHolder.on('touchend', setUpGame);
       	//ctaHolder.on('click', setUpGame);
 
       	/*ahLogo.on('pointerup', function() {
@@ -1339,7 +1342,7 @@ function init() {
     $( window ).resize(function() {
 
 		$(gameContainer).css({width:ghWidth});
-		$(gameHolderShadow).css({width:ghsWidth});
+		//$(gameHolderShadow).css({width:ghsWidth});
 
 	});
 
@@ -1447,8 +1450,6 @@ function init() {
 				}
 			}
 
-
-
 			setUp();
 
 		}, 500);
@@ -1466,27 +1467,37 @@ function init() {
 	});
 	*/
 
+	var init_orientation = Math.abs(window.orientation);
+	var rotateMe = $('#rotateMe');
+	t.set(rotateMe, {autoAlpha:0});
 
   	window.addEventListener("orientationchange", function() {
       	n_orientation = Math.abs(window.orientation);
-      	if  (isMobile === true &&  Math.abs(window.orientation) === 90 ) {
-			//alert('landscape view');
-      		//t.set(rotateAlertOverlay, {autoAlpha:1});
-        	if (playing === true) {
-         		ticker.stop();
-              	Howler.volume(0.0);
-        	}
-    	}
-      	if (isMobile === true && window.orientation === 0) {
-          //t.set(rotateAlertOverlay, {autoAlpha:0});
-          if (playing === true) {
-			setTimeout( function() {
-              ticker.start();
-              Howler.volume(0.5);
-              bgSound.volume(0.4);
-            }, 500);
-          }
-        }
+
+      	if  (isMobile === true ) {
+			if (n_orientation != init_orientation ) {
+				//alert('orientation change');
+
+				if (playing === true) {
+					t.set(rotateMe, {autoAlpha:1});
+					ticker.stop();
+					Howler.volume(0.0);
+				}
+			} else if (n_orientation === init_orientation) {
+				//alert('orientation resumed');
+
+				t.set(rotateMe, {autoAlpha:0});
+
+				if (playing === true) {
+					setTimeout( function() {
+						ticker.start();
+						Howler.volume(0.5);
+						bgSound.volume(0.4);
+					}, 500);
+				}
+			}
+      	}
+
     });
 }
 
@@ -1519,4 +1530,26 @@ function init() {
 
 
 
-/**/
+/*
+	if  (isMobile === true &&  Math.abs(window.orientation) === 90 ) {
+			//alert('landscape view');
+      		//t.set(rotateAlertOverlay, {autoAlpha:1});
+        	if (playing === true) {
+         		ticker.stop();
+              	Howler.volume(0.0);
+        	}
+    	}
+      	if (isMobile === true && window.orientation === 0) {
+          //t.set(rotateAlertOverlay, {autoAlpha:0});
+          //alert('Portrait view');
+          if (playing === true) {
+			setTimeout( function() {
+              ticker.start();
+              Howler.volume(0.5);
+              bgSound.volume(0.4);
+            }, 500);
+          }
+        }
+
+
+*/

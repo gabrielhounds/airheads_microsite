@@ -1601,27 +1601,39 @@ function init() {
       	//t.set(rotateAlertOverlay, {autoAlpha:1});
     }
 
-	window.addEventListener("orientationchange", function() {
+	var init_orientation = Math.abs(window.orientation);
+	var rotateMe = $('#rotateMe');
+	t.set(rotateMe, {autoAlpha:0});
+
+  	window.addEventListener("orientationchange", function() {
       	n_orientation = Math.abs(window.orientation);
-      	if  (isMobile === true &&  Math.abs(window.orientation) === 90 ) {
-			//alert('landscape view');
-      		//t.set(rotateAlertOverlay, {autoAlpha:1});
 
-        	if (playing === true) {
+      	if  (isMobile === true ) {
+			if (n_orientation != init_orientation ) {
+				//alert('orientation change');
 
-         		ticker.stop();
-              	Howler.volume(0.0);
-        	}
-    	}
-      	if (isMobile === true && window.orientation === 0) {
-          //t.set(rotateAlertOverlay, {autoAlpha:0});
-          if (playing === true) {
-			setTimeout( function() {
-              ticker.start();
-              Howler.volume(0.5);
-            }, 500);
-          }
-        }
+
+				t.set(rotateMe, {autoAlpha:1});
+
+				if (playing === true) {
+					ticker.stop();
+					Howler.volume(0.0);
+				}
+			} else if (n_orientation === init_orientation) {
+				//alert('orientation resumed');
+
+				t.set(rotateMe, {autoAlpha:0});
+
+				if (playing === true) {
+					setTimeout( function() {
+						ticker.start();
+						Howler.volume(0.5);
+						bgSound.volume(0.4);
+					}, 500);
+				}
+			}
+      	}
+
     });
 
 
